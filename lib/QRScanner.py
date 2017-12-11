@@ -4,7 +4,6 @@
 
 
 import numpy as np
-import np_opencv_module
 import cv2
 import zbar
 from PIL import Image
