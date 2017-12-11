@@ -7,14 +7,13 @@ class QRSocketC():
 
     """
     clientsocket = None
-    HOST = '192.168.0.5'
 
-    def __init__(self):
+    def __init__(self, host=None):
         """connects to the socket server of the class QRSocketS
 
         """
         self.clientsocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.clientsocket.connect((self.HOST, 8089))
+        self.clientsocket.connect((host, 8089))
 
     def send_image(self, frame):
         """sends a single image to the socket server
