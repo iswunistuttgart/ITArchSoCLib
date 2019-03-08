@@ -21,7 +21,7 @@ def crop_qr_code(frame):
         gray = frame[:, :, 0]
 
         # Only check first recognized barcode
-        qpoints = np.asarray(decode_results[0].polygon)
+        qpoints = np.asarray(barcode[0].polygon)
         pts1 = np.float32([qpoints[0], qpoints[3], qpoints[1], qpoints[2]])
         pts2 = np.float32([[0, 0], [300, 0], [0, 300], [300, 300]])
         M = cv2.getPerspectiveTransform(pts1, pts2)
