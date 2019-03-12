@@ -63,13 +63,10 @@ def qr_codes_equal(qr1, qr2):
     :rtype: bool
     """
 
-    if qr2 is None:
+    if qr1 is None or qr2 is None:
         return False
     else:
         string1 = read_qr_code(qr1)
         string2 = read_qr_code(qr2)
 
-        if string1 and string2 and string1.strip() == string2.strip():
-            return True
-        else:
-            return False
+        return bool(string1 and string2 and string1.strip() == string2.strip())
