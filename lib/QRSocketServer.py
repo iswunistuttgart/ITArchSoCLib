@@ -10,7 +10,7 @@ class QRSocketS():
     HOST = ''
     PORT = 8089
     conn = None
-    data = ""
+    data = bytes()
     addr = None
     payload_size = None
     s = None
@@ -36,7 +36,7 @@ class QRSocketS():
             tmp = self.conn.recv(4096)
             if not tmp:
                 self.conn, self.addr = self.s.accept()
-                self.data = ""
+                self.data = bytes()
                 pass
             self.data += tmp
         packed_msg_size = self.data[:self.payload_size]
@@ -46,7 +46,7 @@ class QRSocketS():
             tmp = self.conn.recv(4096)
             if not tmp:
                 self.conn, self.addr = self.s.accept()
-                self.data = ""
+                self.data = bytes()
                 pass
             self.data += tmp
         frame_data = self.data[:msg_size]
